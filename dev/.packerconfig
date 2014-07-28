@@ -1,0 +1,5 @@
+{
+  "provisioners": {
+    "packer-bosh": "../out/packer-bosh"
+  }
+}

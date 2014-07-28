@@ -1,0 +1,16 @@
+*.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+out/
+
+*.gem
+*.tgz
+
+*~
+
+dev/*.box
+dev/output-*
+dev/packer_cache
+
+.vagrant

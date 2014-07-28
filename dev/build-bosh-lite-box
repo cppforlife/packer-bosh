@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e
+
+dev=$(cd $0/.. && pwd)
+
+export GOPATH=$dev/../../../../..:$dev/../Godeps/_workspace
+
+# Become relative to all dev files
+cd $dev
+
+echo "Building packer-bosh executable"
+go build -o ../out/packer-bosh github.com/cppforlife/packer-bosh/main
+
+export PACKER_CONFIG=.packerconfig
+
+echo "Building blank Ubuntu image"
+packer build template-vbox-blank.json
+
+echo "Building example bosh-lite image"
+packer build template-vbox-bosh-lite.json

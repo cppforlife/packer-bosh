@@ -1,0 +1,25 @@
+{
+  "builders": [{
+    "type": "virtualbox-ovf",
+    "source_path": "output-virtualbox-iso/packer-virtualbox-iso.ovf",
+
+    "ssh_username": "vagrant",
+    "ssh_password": "vagrant",
+    "ssh_wait_timeout": "30s",
+
+    "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now"
+  }],
+
+  "provisioners": [{
+    "type": "packer-bosh",
+    "assets_dir": "../bosh-provisioner/assets",
+    "manifest_path": "example-bosh-lite-manifest.yml",
+    "ssh_password": "vagrant"
+  }],
+
+  "post-processors": [{
+    "type": "vagrant",
+    "keep_input_artifact": true,
+    "output": "bosh-lite-{{ .Provider }}-ubuntu-14-04.box"
+  }]
+}

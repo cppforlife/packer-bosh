@@ -1,0 +1,3 @@
+[submodule "bosh-provisioner"]
+	path = bosh-provisioner
+	url = https://github.com/cppforlife/bosh-provisioner
