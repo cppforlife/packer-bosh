@@ -6,8 +6,8 @@ releases:
   version: 92
   url: https://s3.amazonaws.com/bosh-jenkins-artifacts/release/bosh-2652.tgz
 - name: bosh-warden-cpi
-  version: 1
-  url: https://s3.amazonaws.com/bosh-warden-cpi-blobs/bosh-warden-cpi-1.tgz
+  version: 2
+  url: https://s3.amazonaws.com/bosh-warden-cpi-blobs/bosh-warden-cpi-2.tgz
 
 networks:
 - name: default
@@ -83,7 +83,7 @@ properties:
     port: 25555
     encryption: false
     enable_snapshots: true
-    max_tasks: 1
+    max_tasks: 100
     db:
       user: bosh
       password: bosh-password
@@ -178,11 +178,11 @@ properties:
       connect_network: tcp
       connect_address: 127.0.0.1:7777
     agent:
-      mbus: nats://nats:nats-password@127.0.0.1:4222
+      mbus: nats://nats:nats-password@_local_ip_:4222
       blobstore:
         provider: dav
         options:
-          endpoint: http://127.0.0.1:25251
+          endpoint: http://_local_ip_:25251
           user: agent
           password: agent-password
 
