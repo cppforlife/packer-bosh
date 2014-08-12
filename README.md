@@ -2,6 +2,8 @@
 
 BOSH provisioner allows to provision VM by specifying regular BOSH deployment manifest.
 
+You might also be interested in [vagrant-bosh](https://github.com/cppforlife/vagrant-bosh).
+
 
 ### Usage
 
@@ -13,7 +15,7 @@ BOSH provisioner allows to provision VM by specifying regular BOSH deployment ma
 ```
 {
   "provisioners": {
-    "packer-bosh": "/your-go-bin-dir/packer-bosh"
+    "packer-bosh": "/your-bin-dir/packer-bosh"
   }
 }
 ```
@@ -67,3 +69,8 @@ See [dev/template-vbox-*.json](dev/template-vbox-bosh-lite.json) for example usi
   configures BOSH Agent platform (e.g. `ubuntu`, `centos`)
 
 - `agent_configuration` (Hash, default: '{ ... }')
+
+
+### Using provisioner to build BOSH stemcells
+
+See [building AWS Stemcell](docs/build-aws-stemcell.md).
