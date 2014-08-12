@@ -55,7 +55,7 @@ func (p *Provisioner) Provision(ui packer.Ui, comm packer.Communicator) error {
 		return fmt.Errorf("Uploading config: %s", err)
 	}
 
-	err = cmds.ChmodX(p.remoteConfig.ProvisionerPath())
+	err = cmds.ChmodX(p.remoteConfig.ExePath())
 	if err != nil {
 		return fmt.Errorf("Setting provisioner perms: %s", err)
 	}
@@ -75,7 +75,7 @@ func (p *Provisioner) Cancel() {
 func (p *Provisioner) buildCmd() string {
 	var stdErrRedirect string
 
-	logPath := p.remoteConfig.ProvisionerLogPath()
+	logPath := p.remoteConfig.ExeLogPath()
 
 	if p.userConfig.IsDebug() {
 		stdErrRedirect = fmt.Sprintf("2> >(tee %s >&2)", logPath)
@@ -86,7 +86,7 @@ func (p *Provisioner) buildCmd() string {
 	return fmt.Sprintf(
 		"%s %s -configPath=%s %s",
 		p.userConfig.SudoCmd(),
-		p.remoteConfig.ProvisionerPath(),
+		p.remoteConfig.ExePath(),
 		p.remoteConfig.ConfigPath(),
 		stdErrRedirect,
 	)

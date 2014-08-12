@@ -56,6 +56,7 @@ func (c *UserConfig) HasManifestPath() bool { return c.ManifestPath != nil }
 func (c *UserConfig) IsDebug() bool { return c.PackerDebug }
 
 func (c *UserConfig) SudoCmd() string {
+	// Must work even if SSHPassword is not set
 	return fmt.Sprintf("echo %s | sudo -S", c.SSHPassword)
 }
 

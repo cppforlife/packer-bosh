@@ -16,10 +16,10 @@ type RemoteConfig struct {
 	manifestPath *string
 
 	// bosh-provisioner assets (e.g. bosh-agent, monit)
-	assets             Assets
-	configPath         string
-	provisionerPath    string
-	provisionerLogPath string
+	assets     Assets
+	configPath string
+	exePath    string
+	exeLogPath string
 
 	// Usually /opt/bosh-provisioner
 	baseDir   string
@@ -51,10 +51,10 @@ func NewRemoteConfig(
 
 		manifest: manifest,
 
-		assets:             assets,
-		configPath:         filepath.Join(baseDir, "config.json"),
-		provisionerPath:    filepath.Join(assetsDir, "bosh-provisioner"),
-		provisionerLogPath: filepath.Join(baseDir, "provisioner.log"),
+		assets:     assets,
+		configPath: filepath.Join(baseDir, "config.json"),
+		exePath:    filepath.Join(assetsDir, "bosh-provisioner"),
+		exeLogPath: filepath.Join(baseDir, "provisioner.log"),
 
 		baseDir:   baseDir,
 		assetsDir: assetsDir,
@@ -72,9 +72,9 @@ func NewRemoteConfig(
 	return c
 }
 
-func (c RemoteConfig) ConfigPath() string         { return c.configPath }
-func (c RemoteConfig) ProvisionerPath() string    { return c.provisionerPath }
-func (c RemoteConfig) ProvisionerLogPath() string { return c.provisionerLogPath }
+func (c RemoteConfig) ConfigPath() string { return c.configPath }
+func (c RemoteConfig) ExePath() string    { return c.exePath }
+func (c RemoteConfig) ExeLogPath() string { return c.exeLogPath }
 
 func (c RemoteConfig) Upload(cmds SimpleCmds) error {
 	// Create base directory for non-privileged user so that upload can succeed

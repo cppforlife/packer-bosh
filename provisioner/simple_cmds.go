@@ -8,9 +8,9 @@ import (
 )
 
 type SimpleCmds struct {
-	sudoCmd  string
-	ui       packer.Ui
-	comm     packer.Communicator
+	sudoCmd string
+	ui      packer.Ui
+	comm    packer.Communicator
 }
 
 func NewSimpleCmds(sudoCmd string, ui packer.Ui, comm packer.Communicator) SimpleCmds {
@@ -33,7 +33,7 @@ func (c SimpleCmds) RunPriv(cmd string) error {
 	return c.runCmdPriv(cmd)
 }
 
-// MkdirNonPriv creates directory chowned to non-privileged user
+// MkdirPNonPriv creates directory chowned to user of this SSH connection
 func (c SimpleCmds) MkdirPNonPriv(dir string) error {
 	err := c.runCmdPriv(fmt.Sprintf("mkdir -p %s", dir))
 	if err != nil {

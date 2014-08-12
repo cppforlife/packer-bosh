@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+bin=$(cd $0/.. && pwd)
+
+$bin/go build -o $bin/../out/packer-bosh github.com/cppforlife/packer-bosh/main

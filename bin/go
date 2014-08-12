@@ -1,0 +1,7 @@
+#!/bin/bash 
+
+set -e
+
+bin=$(cd $0/.. && pwd)
+
+exec $bin/env go $@
