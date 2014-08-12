@@ -25,17 +25,7 @@ for more details on how to configure custom provisioners.
 
 ```
 {
-  "builders": [{
-    "type": "amazon-ebs",
-    "access_key": "{{ user `aws_access_key` }}",
-    "secret_key": "{{ user `aws_secret_key` }}",
-    "region": "us-east-1",
-    "source_ami": "ami-408c7f28",
-    "instance_type": "t1.micro",
-    "ssh_username": "ubuntu",
-    "ssh_timeout": "20m",
-    "ami_name": "packer-bosh-{{ isotime | clean_ami_name }}"
-  }],
+  ...
 
   "provisioners": [{
     "type": "packer-bosh",
