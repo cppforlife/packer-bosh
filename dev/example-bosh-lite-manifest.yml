@@ -6,16 +6,16 @@ releases:
   version: 92
   url: https://s3.amazonaws.com/bosh-jenkins-artifacts/release/bosh-2652.tgz
 - name: bosh-warden-cpi
-  version: 2
-  url: https://s3.amazonaws.com/bosh-warden-cpi-blobs/bosh-warden-cpi-2.tgz
+  version: 4
+  url: https://s3.amazonaws.com/bosh-warden-cpi-blobs/bosh-warden-cpi-4.tgz
 
 networks:
 - name: default
   type: dynamic
 
 update:
-  canary_watch_time: 5000 - 15000
-  update_watch_time: 5000 - 15000
+  canary_watch_time: 5000 - 60000
+  update_watch_time: 5000 - 60000
 
 compilation:
   network: default
