@@ -60,10 +60,10 @@
       "scripts/vbox-guest-additions.sh", 
       "scripts/admin-sudoers.sh"
     ]
-  }, {
+  },{
     "type": "shell",
     "scripts": [ "scripts/vagrant-pub-key.sh" ]
-  }, {
+  },{
     "type": "shell",
     "inline": "echo 'vagrant' | sudo -S usermod -a -G admin vagrant"
   }]

@@ -6,8 +6,8 @@ releases:
   version: 92
   url: https://s3.amazonaws.com/bosh-jenkins-artifacts/release/bosh-2652.tgz
 - name: bosh-warden-cpi
-  version: 4
-  url: https://s3.amazonaws.com/bosh-warden-cpi-blobs/bosh-warden-cpi-4.tgz
+  version: 5
+  url: https://s3.amazonaws.com/bosh-warden-cpi-blobs/bosh-warden-cpi-5.tgz
 
 networks:
 - name: default
@@ -190,6 +190,6 @@ properties:
   warden:
     listen_network: tcp
     listen_address: 0.0.0.0:7777
-    network_pool: 10.244.0.0/22 # bosh-lite v1 used this pool
+    network_pool: 10.244.0.0/16 # bosh-lite v1 used this pool
     disk_quota_enabled: false
     kernel_network_tuning_enabled: false
