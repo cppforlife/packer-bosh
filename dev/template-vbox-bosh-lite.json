@@ -15,6 +15,14 @@
     "assets_dir": "../bosh-provisioner/assets",
     "manifest_path": "example-bosh-lite-manifest.yml",
     "ssh_password": "vagrant"
+  },{
+    "type": "shell",
+    "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -S -E {{ .Path }}",
+    "remote_path": "/opt/bosh-provisioner/packer-shell.sh",
+    "scripts": [
+      "scripts/clean-up.sh",
+      "scripts/shrink-disk.sh"
+    ]
   }],
 
   "post-processors": [{
