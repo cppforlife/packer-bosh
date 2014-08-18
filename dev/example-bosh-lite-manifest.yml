@@ -3,8 +3,8 @@ name: bosh-lite
 
 releases:
 - name: bosh
-  version: 92
-  url: https://s3.amazonaws.com/bosh-jenkins-artifacts/release/bosh-2652.tgz
+  version: 100
+  url: https://s3.amazonaws.com/bosh-jenkins-artifacts/release/bosh-2690.tgz
 - name: bosh-warden-cpi
   version: 5
   url: https://s3.amazonaws.com/bosh-warden-cpi-blobs/bosh-warden-cpi-5.tgz
