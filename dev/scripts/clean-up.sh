@@ -6,6 +6,10 @@ rm -rf /etc/udev/rules.d/70-persistent-net.rules
 rm -rf /lib/udev/rules.d/75-persistent-net-generator.rules
 rm -rf /dev/.udev/
 
+echo "Cleaning up BOSH provisioner left-overs"
+rm -rf /opt/bosh-provisioner/{repos,blobstore,tmp,assets}
+rm -rf /var/vcap/data/compile
+
 echo "Cleaning up /tmp"
 rm -rf /tmp/*
 
