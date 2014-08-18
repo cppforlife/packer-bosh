@@ -58,7 +58,8 @@
     "execute_command": "echo 'vagrant' | {{ .Vars }} sudo -S -E {{ .Path }}",
     "scripts": [
       "scripts/vbox-guest-additions.sh", 
-      "scripts/admin-sudoers.sh"
+      "scripts/admin-sudoers.sh",
+      "scripts/update-trusty-kernel.sh"
     ]
   },{
     "type": "shell",
