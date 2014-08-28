@@ -38,7 +38,10 @@ func NewUserConfig(raws ...interface{}) (UserConfig, error) {
 	c := UserConfig{
 		AgentInfrastructure: "warden",
 		AgentPlatform:       "ubuntu",
-		AgentConfiguration:  map[string]interface{}{},
+
+		// Set exlicitly to nil instead of map[string]interface{}{}
+		// for bosh-provisioner to use reasonable default
+		AgentConfiguration: nil,
 	}
 
 	metadata, err := common.DecodeConfig(&c, raws...)
