@@ -20,7 +20,7 @@ func NewSimpleCmds(sudoCmd string, ui packer.Ui, comm packer.Communicator) Simpl
 func (c SimpleCmds) Upload(dstPath string, input io.Reader) error {
 	c.ui.Message(fmt.Sprintf("Uploading %s", dstPath))
 
-	return c.comm.Upload(dstPath, input)
+	return c.comm.Upload(dstPath, input, nil)
 }
 
 func (c SimpleCmds) UploadDir(dstDir string, srcDir string, excl []string) error {

@@ -32,18 +32,18 @@
 		},
 		{
 			"ImportPath": "github.com/mitchellh/packer/common",
-			"Comment": "v0.6.1-13-g3ff514b",
-			"Rev": "3ff514bb4435a16d8aa0ced8c43c5f49215d94e9"
+			"Comment": "v0.7.2",
+			"Rev": "4c7538dad8e9aa634506e42960822d6a9c7266fb"
 		},
 		{
 			"ImportPath": "github.com/mitchellh/packer/communicator/ssh",
-			"Comment": "v0.6.1-13-g3ff514b",
-			"Rev": "3ff514bb4435a16d8aa0ced8c43c5f49215d94e9"
+			"Comment": "v0.7.2",
+			"Rev": "4c7538dad8e9aa634506e42960822d6a9c7266fb"
 		},
 		{
 			"ImportPath": "github.com/mitchellh/packer/packer",
-			"Comment": "v0.6.1-13-g3ff514b",
-			"Rev": "3ff514bb4435a16d8aa0ced8c43c5f49215d94e9"
+			"Comment": "v0.7.2",
+			"Rev": "4c7538dad8e9aa634506e42960822d6a9c7266fb"
 		},
 		{
 			"ImportPath": "github.com/ugorji/go/codec",
