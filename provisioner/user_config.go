@@ -22,6 +22,11 @@ type UserConfig struct {
 	// ManifestPath is a path on a host FS to a deployment manifest
 	ManifestPath *string `mapstructure:"manifest_path"`
 
+	// RemoveManifestPath is a path on the guest FS to a deployment manifest
+	// If a ManifestPath is provided, it will be uploaded to the RemoveManifestPath
+	// If a ManifestPath is not provided, a manifest must be present at the location specified
+	RemoteManifestPath string `mapstructure:"remote_manifest_path"`
+
 	// FullStemcellCompatibility makes provisioner install additional dependencies
 	FullStemcellCompatibility bool `mapstructure:"full_stemcell_compatibility"`
 

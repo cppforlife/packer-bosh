@@ -6,20 +6,20 @@ import (
 	"path/filepath"
 )
 
-// Manifest represent a deployment manifest that can be uploaded to a remote location
-type Manifest struct {
+// LocalManifest represent a deployment manifest that can be uploaded to a remote location
+type LocalManifest struct {
 	localPath *string
 }
 
-func NewManifest(localPath *string) Manifest {
-	return Manifest{localPath: localPath}
+func NewLocalManifest(localPath *string) LocalManifest {
+	return LocalManifest{localPath: localPath}
 }
 
-func (m Manifest) IsPresent() bool {
+func (m LocalManifest) IsPresent() bool {
 	return m.localPath != nil
 }
 
-func (m Manifest) Upload(remotePath *string, cmds SimpleCmds) error {
+func (m LocalManifest) Upload(remotePath *string, cmds SimpleCmds) error {
 	if remotePath != nil && m.IsPresent() {
 		return m.uploadFile(cmds, *remotePath, *m.localPath)
 	}
@@ -27,7 +27,7 @@ func (m Manifest) Upload(remotePath *string, cmds SimpleCmds) error {
 	return nil
 }
 
-func (m Manifest) uploadFile(cmds SimpleCmds, dstPath, srcPath string) error {
+func (m LocalManifest) uploadFile(cmds SimpleCmds, dstPath, srcPath string) error {
 	err := cmds.MkdirP(filepath.Dir(dstPath))
 	if err != nil {
 		return err

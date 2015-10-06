@@ -12,8 +12,8 @@ type RemoteConfig struct {
 	vmProvisionerConfig VMProvisionerConfig
 
 	// Deployment manifest and its path
-	manifest     Manifest
-	manifestPath *string
+	localManifest LocalManifest
+	manifestPath  *string
 
 	// bosh-provisioner assets (e.g. bosh-agent, monit)
 	assets     Assets
@@ -41,7 +41,8 @@ type VMProvisionerConfig struct {
 func NewRemoteConfig(
 	baseDir string,
 	vmProvisionerConfig VMProvisionerConfig,
-	manifest Manifest,
+	localManifest LocalManifest,
+	remoteManifestPath string,
 	assets Assets,
 ) RemoteConfig {
 	assetsDir := filepath.Join(baseDir, "assets")
@@ -49,7 +50,7 @@ func NewRemoteConfig(
 	c := RemoteConfig{
 		vmProvisionerConfig: vmProvisionerConfig,
 
-		manifest: manifest,
+		localManifest: localManifest,
 
 		assets:     assets,
 		configPath: filepath.Join(baseDir, "config.json"),
@@ -64,9 +65,13 @@ func NewRemoteConfig(
 		localBlobstoreDir: filepath.Join(baseDir, "blobstore"),
 	}
 
-	if manifest.IsPresent() {
+	if localManifest.IsPresent() {
 		manifestPath := filepath.Join(baseDir, "manifest.yml")
 		c.manifestPath = &manifestPath
+	}
+
+	if remoteManifestPath != "" {
+		c.manifestPath = &remoteManifestPath
 	}
 
 	return c
@@ -83,7 +88,7 @@ func (c RemoteConfig) Upload(cmds SimpleCmds) error {
 		return fmt.Errorf("Creating base dir: %s", err)
 	}
 
-	err = c.manifest.Upload(c.manifestPath, cmds)
+	err = c.localManifest.Upload(c.manifestPath, cmds)
 	if err != nil {
 		return fmt.Errorf("Uploading manifest: %s", err)
 	}

@@ -33,14 +33,15 @@ func (p *Provisioner) Prepare(raws ...interface{}) error {
 		AgentConfiguration:  p.userConfig.AgentConfiguration,
 	}
 
-	manifest := NewManifest(p.userConfig.ManifestPath)
+	localManifest := NewLocalManifest(p.userConfig.ManifestPath)
 
 	assets := NewAssets(p.userConfig.AssetsDir)
 
 	p.remoteConfig = NewRemoteConfig(
 		"/opt/bosh-provisioner",
 		vmProvisionerConfig,
-		manifest,
+		localManifest,
+		p.userConfig.RemoteManifestPath,
 		assets,
 	)
 
