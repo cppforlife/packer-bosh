@@ -8,7 +8,7 @@ You might also be interested in [vagrant-bosh](https://github.com/cppforlife/vag
 ### Usage
 
 1. Run `go get github.com/cppforlife/packer-bosh` to download `packer-bosh`. 
-  Make sure to run `git submodule update --init` from insice `packer-bosh` directory.
+  Make sure to run `git submodule update --init` from inside `packer-bosh` directory.
 
 2. Configure Packer's `$HOME/.packerconfig` to know about `packer-bosh` executable:
 
