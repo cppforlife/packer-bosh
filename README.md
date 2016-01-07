@@ -50,7 +50,11 @@ See [dev/template-vbox-*.json](dev/template-vbox-bosh-lite.json) for example usi
 ### Provisioner options
 
 - `manifest_path` (String, default: `nil`)
-  should contain path to a full BOSH deployment manifest
+  must contain a local path to a full BOSH deployment manifest (unless `remote_manifest_path` is provided)
+
+- `remote_manifest_path` (String, default: `nil`)
+  - if `manifest_path` is not provided, a manifest must be present at `remote_manifest_path`
+  - if `manifest_path` is also provided, it will be uploaded to `remote_manifest_path` instead of the default location
 
 - `assets_dir` (String, default: `nil`)
   should contain path to directory with `bosh-provisioner` assets
