@@ -11,8 +11,16 @@
 			"Rev": "aa2644fe4aa50e3b38d75187b4799b1f0c9ddcef"
 		},
 		{
+			"ImportPath": "github.com/hashicorp/go-msgpack/codec",
+			"Rev": "fa3f63826f7c23912c15263591e65d54d080b458"
+		},
+		{
 			"ImportPath": "github.com/hashicorp/go-version",
 			"Rev": "bb92dddfa9792e738a631f04ada52858a139bcf7"
+		},
+		{
+			"ImportPath": "github.com/hashicorp/yamux",
+			"Rev": "ddcd0a6ec7c55e29f235e27935bf98d302281bd3"
 		},
 		{
 			"ImportPath": "github.com/mitchellh/go-fs",
@@ -44,10 +52,6 @@
 			"ImportPath": "github.com/mitchellh/packer/packer",
 			"Comment": "v0.7.2",
 			"Rev": "4c7538dad8e9aa634506e42960822d6a9c7266fb"
-		},
-		{
-			"ImportPath": "github.com/ugorji/go/codec",
-			"Rev": "71c2886f5a673a35f909803f38ece5810165097b"
 		}
 	]
 }
